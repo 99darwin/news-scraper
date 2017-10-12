@@ -16,18 +16,20 @@
         <div class="col s12">
             <input type="text" name="Search" id="search" placeholder="Search articles"> 
             <button id="scrape" class="btn">Scrape New Articles</button>
-            <div class="articles"></div>
-            {{!-- {{#each article}}
-            <div class="card hoverable" id="article">
+            <div class="card hoverable" id="loading" style="display:none">
                 <div class="card-content">
                     <span class="card-title">
-                        {{this.title}}
-                        <p>{{this.link}}</p>
+                        Loading...
                     </span>
-                    <button class="btn">Add note</button>
-                    <textarea class="textarea" placeholder="Enter your note"></textarea>
+                    {{!-- <button class="btn">Add note</button>
+                    <textarea class="textarea" placeholder="Enter your note"></textarea> --}}
                 </div>
             </div>
+            <div class="articles">
+            
+            </div>
+            {{!-- {{#each article}}
+            
             {{/each}} --}}
         </div>
     </div>

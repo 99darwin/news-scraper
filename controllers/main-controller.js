@@ -32,8 +32,7 @@ exports.scrape = function(req, res) {
             });
         });
         res.render('index');
-    });
-    
+    }); 
 };
 
 // Find all articles and return json object

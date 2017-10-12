@@ -4,11 +4,13 @@ var Schema = mongoose.Schema;
 var ArticleSchema = new Schema({
     title: {
         type: String,
-        require: true
+        require: true,
+        index: { unique: true }
     },
     link: {
         type: String,
-        required: true
+        required: true,
+        index: { unique: true }
     },
     note: {
         type: Schema.Types.ObjectId,

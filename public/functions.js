@@ -10,16 +10,27 @@ $('document').ready(function() {
             var adiv = $('.articles');
             adiv.prepend('<div class="card hoverable">' + 
             '<div class="card-content">' + '<span class="card-title">' + data[i].title + '</span>' + 
-            '<div class="card-action"><a href="' + data[i].link + '"> Read Article </a>' + '</div></div></div>')
+            '<div class="card-action"><a href="' + data[i].link + '"> Read Article </a><a href="#modal1" class="modal-trigger" id="note"> Make Note </a>' 
+            + '</div></div></div>')
         }
         
     });
 });
 
+$(document).ready(function(){
+    // the "href" attribute of the modal trigger must specify the modal ID that wants to be triggered
+    $('.modal').modal();
+    $('#note').on('click', function() {
+        $('#modal1').modal('open');
+    })
+});
+
+
+
 $('#scrape').on('click', function(e) {
     e.preventDefault();
     $('#loading').toggle(400);
-    setTimeout(scrapeArticle(), 5000);
+    scrapeArticle();
 });
 
 function scrapeArticle() {
@@ -27,11 +38,12 @@ function scrapeArticle() {
         method: 'GET',
         url: '/scrape'
     }).done(function(data) {
-        console.log(data);
-        // $('#loading').toggle(400);
+        // console.log(data);
         location.reload();
     });
 }
+
+
 
 
 $('.carousel.carousel-slider').carousel({fullWidth: true});

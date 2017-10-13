@@ -5,12 +5,17 @@ var ArticleSchema = new Schema({
     title: {
         type: String,
         require: true,
-        index: { unique: true }
+        unique: true
     },
+    // summary: {
+    //     type: String,
+    //     require: true,
+    //     unique: true
+    // },
     link: {
         type: String,
         required: true,
-        index: { unique: true }
+        unique: true,
     },
     note: {
         type: Schema.Types.ObjectId,

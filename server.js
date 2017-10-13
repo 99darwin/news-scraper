@@ -35,7 +35,7 @@ app.use(methodOverride('_method'));
 mongoose.connect('mongodb://localhost/news-scraper');
 var db = mongoose.connection;
 db.on('error', function(err) {
-    console.log('Mongoose Error: ', error);
+    console.log('Mongoose Error: ', err);
 });
 
 db.once('open', function() {

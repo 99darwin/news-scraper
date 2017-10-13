@@ -1,6 +1,7 @@
 var server  = require('../server.js');
 var Note    = require('../models/Note.js');
 var Article = require('../models/Article.js');
+// var Saved = require('../models/Saved.js');
 var request = require('request');
 var cheerio = require('cheerio');
 // ==== Routes ====
@@ -19,6 +20,7 @@ exports.scrape = function(req, res) {
         $('article h2').each(function(i, element) {
             var article = {
                 title: $(this).children('a').text(),
+                // summary: $(this).children('div').attr('.front-view-content'),
                 link: $(this).children('a').attr('href')
             }
             var entry = new Article(article);
@@ -42,6 +44,30 @@ exports.articles = function(req, res) {
         res.json(doc);
     });
 };
+
+exports.saveNote = function(req, res) {
+    var newNote = new Note(req.body);
+    newNote.save(function(err, doc) {
+        if (err) {
+            console.log(err);
+        }
+        else {
+            Article.findOneAndUpdate({
+                '_id': req.params.id
+            },
+            {
+                'note': doc._id
+            }).exec(function(err, doc) {
+                if (err) {
+                    console.log(err);
+                }
+                else {
+                    res.send(doc);
+                }
+            });
+        }
+    });
+}
 
 // app.post('/articles', function(req, res) {
     

@@ -7,4 +7,5 @@ module.exports = function(app) {
     app.get('/articles', mainController.articles);
 
     // Post routes
+    app.post('/articles/:id', mainController.saveNote);
 }

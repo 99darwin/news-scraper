@@ -50,7 +50,7 @@ db.once('open', function() {
 mongoose.Promise = Promise;
 
 // Localhost server
-var PORT = 1500;
+var PORT = process.env.PORT || 1500;
 app.listen(PORT, function() {
     console.log('App running on port', PORT);
 });

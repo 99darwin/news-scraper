@@ -32,8 +32,8 @@ app.use(methodOverride('_method'));
 
 
 // Database
-mongoose.connect('mongodb://localhost/news-scraper');
-if (process.env.MONGODB.URI) {
+var databaseUri = 'mongodb://localhost/news-scraper';
+if (process.env.MONGODB_URI) {
     mongoose.connect(process.env.MONGODB_URI);
 } else {
     mongoose.connect(databaseUri);

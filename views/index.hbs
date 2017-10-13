@@ -32,10 +32,11 @@
                 <div class="modal-content">
                 <h4>Make a note</h4>
                 <p>Write your thoughts and save them using the form below</p>
-                <textarea type="text" placeholder="Your thoughts"></textarea>
+                <input type="text" name="title" id="titleInput" placeholder="Enter Title">
+                <textarea type="text" id="bodyInput" class="materialize-textarea" placeholder="Your thoughts"></textarea>
                 </div>
                 <div class="modal-footer">
-                <a href="#!" class="modal-action modal-close waves-effect waves-green btn-flat">Save</a>
+                <a href="#!" data-id="1234" id="savenote" class="modal-action modal-close waves-effect waves-green btn-flat">Save</a>
                 </div>
             </div>
             {{!-- {{#each article}}
